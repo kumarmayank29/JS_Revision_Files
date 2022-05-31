@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java Script and ES6 Revision</title>
+</head>
+
+
+<!-- JavaScript imporves user experience of Webpage by converting it from static page to interactive one
+     Javascript adds behaviour to our webpages -->
+
+<!--  -->
+<body>
+    <button onclick="Runme()" style="color: brown;">Smash This Icon</button>
+    <br>
+    <br>
+    <button onmouseover="Hitme()" style="color: rosybrown;">Please Click</button>
+    <br>
+    <br>
+    <button onmouseout="Punchme()" style="color: Blue;">Please Click</button>
+    <br>
+    <br>
+    <button onclick="Bounceme()" style="color: maroon;">Please Click to go to New Page</button>
+    <br>
+    <br>
+    <button onclick="Kickme()" style="color: maroon;">Please Click to go to New Page</button>
+    <br>
+    <br>
+    <button onclick="Confirmation()" style="color: black;">Please move for confirmation</button>
+    <br>
+    <br>
+    <button onclick="Myprompt()" style="color: rgb(78, 13, 13);">Please Click to go to New Page</button>
+    <br>
+    <button onclick="goBack()" style="color: brown;">Go Back</button>
+    <br>
+    <br>
+
+    <form name="myform" onsubmit="return FormValidation()">
+        UserName:<input type="text" id="user" value=""> <span id="username"> Print </span> <br><br>
+        PassWord:<input type="password" id="pass" value=""> <span id="password"> Print Me </span> <br><br>
+        <input type="submit" value="Submit">
+
+    </form>
+    <script>
+        
+        document.write("Welcome to JS");
+        alert("Welcome to JS");
+      
+        // Variables in JS 
+        var a=8;
+        var c=2;
+        // SYNTAX:  document.write(exp1, exp2, exp3, ...)
+        document.write("<br>");
+        document.write(a+c," ",a-c," ",a/c,"    ",a*c," ",a**c," ",a%c," ",a++," ",c--);
+
+        // Difference between == and ===
+        //   ==    Compares only Values and not Datatype
+        //   ===   Compares Both values as well as datatype
+        
+        document.write("<br>");
+        var d=5;
+        var e="5"
+        var f=d==e;
+        var g=d===e;
+        document.write(f," ",g); //f is true and g is false
+        document.write("<br>");
+
+        var v1="10";
+        var v2="11";
+        //Conditionals Expressions in JS
+       //IF-ELSE
+        if(v1>v2)
+        {
+            document.write("Greater");
+        }
+        else if(v1==v2)
+        {
+            document.write("Equals");
+        }
+        else
+        {
+            document.write("None of Above");
+        }
+
+        document.write("<br>");
+        //SWITCH CASE
+        switch(d)
+        {
+            case "10":document.write("Case 10 String");
+            break;
+            case "11":document.write("Case 11 String");
+            break;
+            default:
+                document.write("None of above cases are true");
+        }
+        document.write("<br>");
+        //LOOPS in JS
+        for(var k=1;k<=5;k++)
+        {
+            document.write("Mayank <br>");
+        }
+        document.write("<br>");
+        k=1
+        while(k<=5)
+        {
+            document.write("Mayank <br>");
+            k++;
+        }
+        document.write("<br>");
+
+        k=5
+        do{
+            document.write("Mayank <br>");
+            k++;
+        } while(k===5);
+        document.write("<br>");
+
+
+        //Arrays in JS
+        //Method 1 VIA Object  
+        var arrays=new Array;
+        arrays[0]="Mayank";
+        arrays[1]="Kumar";
+        document.write(arrays[0]," ",arrays[1]);
+        document.write("<br>");
+
+        //Method 2
+        var arrays_1=new Array("Mayank","Kumar");
+        document.write(arrays_1[0]," ",arrays_1[1]);
+        document.write("<br>");
+
+        //
+        var arrays_2=["Mayank","Kumar",1806039];
+        document.write(arrays_2[2]);
+        document.write("<br>");
+
+        //Arrays Functions in JS
+        var arrays_3=new Array("Mayank","Kumar");
+        var arrays_4=new Array("Prerana","Sen");
+        var concatarray=arrays_3.concat(arrays_4);
+        document.write(concatarray); 
+        document.write("<br>");
+
+        //Push and pop function in Array
+        //Push().The push() method adds a new element to an array (at the end):
+        //The push() method returns the new array length
+
+        concatarray.push("Vedio Call");
+        document.write(concatarray,"<br>");
+        document.write(concatarray.push("New One"));
+        document.write("<br>");
+        document.write(concatarray,"<br>");
+
+        document.write("<br>");
+           
+
+        //Pop() .The pop() method removes the last element from an array
+        //The pop() method returns the value that was "popped out"
+        var poped_ele=concatarray.pop();
+        document.write(poped_ele,"<br>")
+        document.write(concatarray,"<br>");
+        
+
+        //Sift()
+        /*Shifting is equivalent to popping, working on the first element instead of the last.
+          The shift() method removes the first array element and "shifts" all other elements to 
+          a lower index.The shift() method returns the value that was "shifted out":*/
+        
+        document.write(concatarray.shift());
+        document.write("<br>");
+        document.write(concatarray);
+        document.write("<br>");
+
+        //Unshift() similar to push() ,the only difference is Push() appends ele. at end of array while unshift() adds element at beginning of array 
+        // The unshift() method adds a new element to an array (at the beginning), and "unshifts" older elements
+        // The unshift() method returns the new array length.
+        document.write(concatarray.unshift("Mayank"));
+        document.write("<br>");
+        document.write(concatarray);
+        document.write("<br>");
+
+        
+        //delete()
+        //Using delete in Arrays
+        //NOTE:Using delete may leave undefined holes in the array and the length of array would also count the holes created due to deletion of element
+        //. Use pop() or shift() instead.
+        
+
+        var arrays_5=new Array("Mayank","Kumar","Singh","Old thoughts","1806039");
+        document.write(arrays_5,"<br>")
+        document.write(delete arrays_5[3],"<br>"); //Gives true
+        //document.write(delete arrays_5["ele"],"<br>"); //Gives true
+
+        //Creates a HOLE at index 3
+        document.write(arrays_5);
+        document.write("<br>");
+        document.write(arrays_5.length); //Also counts the holes
+        document.write("<br>");
+
+
+        //Splice()
+        /*
+        The first parameter (3) defines the position where new elements should be added (spliced in).
+        The second parameter (2) defines how many elements should be removed.
+        The rest of the parameters ("New Thoughts","Employee_ID") define the new elements to be added.
+        The splice() method returns an array with the deleted items:*/
+        document.write(arrays_5.splice(3,2,"New Thoughts","Employee_ID"));
+        document.write("<br>");
+        document.write(arrays_5);
+        document.write("<br>");
+
+        //Deleting Elements Using Splice() operator
+        /*
+        With clever parameter setting, you can use splice() to remove elements without leaving "holes" in the array:
+        The first parameter (0) defines the position where new elements should be deleted.
+        The second parameter (1) defines how many elements should be removed.
+        The rest of the parameters are omitted. No new elements will be added.*/
+        document.write(arrays_5.splice(2,2));
+        document.write("<br>");
+        document.write(arrays_5);
+        document.write("<br>");
+
+        //concat()
+        //Merging Arrays
+        // The concat() method does not change the existing arrays. It always returns a new array.
+        // The concat() method can take any number of array arguments:
+        // The concat() method can also take strings as arguments:
+
+        var arr1 = ["Cecilie", "Lone"];
+        var arr2 = ["Emil", "Tobias", "Linus"];
+        var arr3 = ["Robin", "Morgan"];
+        var myChildren = arr1.concat(arr2, arr3);
+        document.write(myChildren);
+        document.write("<br>");
+
+        //Slice()
+       /* The slice() method slices out a piece of an array into a new array.
+        The slice() method creates a new array. It does not remove any elements from the source array.
+        The slice() method can take two arguments like slice(1, 3).
+        The method then selects elements from the start argument, and up to (but not including) the end argument.*/
+        //For myChildren=[Cecilie,Lone,Emil,Tobias,Linus,Robin,Morgan] slice operation--
+
+        document.write(myChildren.slice(3,myChildren.length));
+        document.write("<br>");
+        document.write(myChildren.slice(1,myChildren.length-2));
+        document.write("<br>");
+        document.write(myChildren.slice(1,5));
+        document.write("<br>");
+
+        //Functions in JS
+        document.write("Functions in JS <br>");
+        function multiply(a,b)
+        {
+                return a*b;
+        }
+
+        document.write(multiply(50,50));
+        document.write("<br><br>");
+        
+        
+        //String in JS
+        document.write("Strings in JS <br>");
+        var str="Mayank Kumar Singh";
+        var str_1="I love pizza"
+        var str_2="H"
+
+        //Reference ko compare walle ke baad ana chaeye orderwise so it would 1
+        //Jab reference wala compare ke pehli a gya to sorting ki zarurat nhi esliye -1 aiga
+        //Else dono same me 0 aiga 
+        //referencestring.localeCompare(ComparingString) 
+        document.write("Length of Strings in JS "+str.length+"<br>");
+        document.write("Character at Strings "+str.charAt(7)+"<br>");
+        document.write("ASCII value of Character "+str.charCodeAt(7)+"<br>");
+        document.write("Index number of a character"+str.indexOf('a')+"<br>");
+        document.write("Locally Compare: "+str.localeCompare("zz")+"<br>");
+        document.write("Locally Compare: "+str_1.localeCompare(str_2)+"<br>"); 
+        /*Locally compare segiment or portion of with given string
+          with actual string if found then gives 1 else returns -1*/ 
+
+        //Events in JS
+
+        function Runme()
+        {
+            document.write("Computer G Chutiya hi Kya!!");
+        }
+
+        function Hitme()
+        {
+            document.write("Hum Mandir Ka ghanta hi Maro Mujhae");
+        }
+
+        function Punchme()
+        {
+            document.write("Ban Gain SpiderMan");
+        }
+
+
+        //eval function 
+        /*Syntax:eval(string)
+        string	A JavaScript expression, variable, statement, or sequence of statements*/
+        var x = 10;
+        var y = 20;
+        var a = eval("x * y") + "<br>";
+        document.write(a);
+
+
+        //Window.location() function-Naviagtes to URL supplied in windows.loaction
+
+        function Bounceme()
+        {
+            window.location=("https://www.linkedin.com/in/prerana-sen-7b56441a0/");
+        }
+
+        function Kickme()
+        {
+            window.location.href=("https://www.linkedin.com/in/prerana-sen-7b56441a0/");
+        }
+       
+
+        /*Important Dialog Boxes in JS to make website interactive
+        1. Confirm()
+        2. prompt()
+        */
+
+        /*confirm()
+        If the user clicks on the OK button, the window method confirm() will return true. If the user
+        clicks on the Cancel button, then confirm() returns false. */
+        function Confirmation()
+        {
+            var ans=confirm("Do you want to Visit the website") //window.confirm
+            //If positive response then it returns 1 else 0;
+
+            if(ans)
+            {
+                alert("Welcome to MKS Educare");
+                window.location=("https://www.linkedin.com/in/prerana-sen-7b56441a0/");
+            }
+            else
+            {
+                alert("Sorry! you selected cancel button");
+            }
+        }
+
+
+        //Prompt()
+        /*
+        This dialog box is displayed using a method called prompt() which takes two parameters: 
+        (i) a label which you want to display in the text box and 
+        (ii) a default string to display in the text box.
+
+        This dialog box has two buttons: OK and Cancel. If the user clicks the OK button, 
+        the window method prompt() will return the entered value from the text box. If the user 
+        clicks the Cancel button, the window method prompt() returns null.
+       */
+        function Myprompt()
+        {
+            var strr=prompt("Hello,My self MKS Educare what's your Good Name !","");
+            if(strr==null)
+            {
+                document.write("Thank You For visiting");
+            }
+            else
+            {
+            alert("Nice to meet you "+strr+"!");
+            }
+
+        }
+
+        function goBack()
+        {
+            window.history.back();
+        }
+
+        document.write("<br><br>");
+        //Maths Functions in JS
+        document.write(Math.floor(-8.9)+"<br>"); 
+        document.write(Math.ceil(-8.9)+"<br>");
+        document.write(Math.floor(-10.99)+"<br>"); // -11
+        document.write(Math.ceil(-10.99)+"<br>");  // -10
+        document.write(Math.round(-10.99)+"<br>");
+        document.write(Math.log(0)+"<br>");
+        document.write(Math.max(-10.99,-11.19,-2)+"<br>");
+        document.write(Math.min(-10.99,-11.19,-2)+"<br>");
+        document.write(Math.pow(5,2)+"<br>");
+        document.write(Math.sqrt(7921)+"<br>");
+        document.write(Math.random()+"<br>");  
+        // Math.random() returns a random number between 0 (inclusive),  and 1 (exclusive):
+        document.write(Math.abs(-2+(-9))+"<br>");
+        document.write(Math.PI+"<br>");
+        document.write(Math.trunc(3.4218)+"<br>");
+        //The trunc() method returns the integer part of a number.
+       //Note: This method will NOT round the number up/down to the nearest integer, 
+       //but simply remove the decimals.It returns before decimal part of a number;
+
+       //If the argument is a positive number then,Math.truc() is equivalent to Math.floor()
+       //for negative Math.trunc() is equivalent to Math.ceil()
+       document.write(Math.trunc(8.9)+"<br>"+Math.floor(8.9)+"<br>")  //8
+       document.write(Math.trunc(-8.9)+"<br>"+Math.ceil(-8.9)) //-8
+
+
+
+       document.write("<br><br>")
+       //Date Methods in Java 
+
+       /*There are 4 ways to create a new date object:
+        1.new Date()
+        2.new Date(year, month, day, hours, minutes, seconds, milliseconds)
+        3.new Date(milliseconds)
+        4.new Date(date string)*/
+
+       /*new Date()
+         new Date() creates a new date object with the current date and time:*/
+       var obj =new Date();
+       document.write(obj+"<br>");
+       document.write(Date()+"<br>");
+       document.write(obj.getDate()+"<br>");
+        document.write(obj.getDay()+"<br>"); //Sunday 0 ,Monday 1
+        document.write(obj.getFullYear()+"<br>");
+        document.write(obj.getHours()+"<br>");
+        document.write(obj.getMonth()+"<br>");
+        document.write(obj.getSeconds()+"<br>");
+        document.write(obj.getMilliseconds()+"<br>");
+        document.write(obj.getTime()+"<br>");  
+
+        //new Date(dateString)
+        //new Date(dateString) creates a new date object from a date string:
+        var dt = new Date("October 13, 2014 11:13:00");
+        document.write(dt);
+
+        document.write("<br>");
+        dt.setDate(29);
+        document.write(dt);
+
+        document.write("<br>");
+        dt.setMonth(8);  // 0-11 where 0 is January 11 is December
+        document.write(dt);
+
+        document.write("<br>");
+        dt.setHours(23);
+        document.write(dt);
+
+        document.write("<br>");
+        dt.setMinutes(56);
+        document.write(dt);
+
+        document.write("<br>");
+        dt.setFullYear(2070);
+        document.write(dt);
+
+        //Validation for Form
+
+        function FormValidation()
+        {
+            var un=document.getElementById("user").value
+            //Jo bhi user tag vali value field me aiga usiko valiate karenge
+            var ps=document.getElementById("pass").value
+
+            if(un=="")
+            {
+                document.getElementById("username").innerHTML="*Username is Mandatory Field";
+                return false; 
+
+            }
+            if(ps=="")
+            {
+                document.getElementById("password").innerHTML="*Password is Mandatory Field";
+                return false; 
+
+            }
+            else
+            {
+                alert("Done!");
+                return true;
+            }
+        
+
+        }
+
+
+      
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+        
+     </script>
+    
+</body>
+</html>

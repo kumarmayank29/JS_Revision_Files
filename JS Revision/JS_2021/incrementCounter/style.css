@@ -1,0 +1,36 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+
+}
+
+body{
+   
+    background: rgb(128, 128, 201);
+    display: grid;
+    place-items: center;
+}
+
+/* .fas fa-mug-hot fa-3x{
+    width: 80vw;
+    height: 70vh;
+    display: grid;
+    place-items: center;
+}
+
+.fas fa-users fa-3x{
+    width: 80vw;
+    height: 70vh;
+    display: grid;
+    place-items: center;
+}
+
+.fas fa-tasks fa-3x{
+    width: 80vw;
+    height: 70vh;
+    display: grid;
+    place-items: center;
+} */
+

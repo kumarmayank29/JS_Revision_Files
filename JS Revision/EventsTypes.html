@@ -1,0 +1,203 @@
+
+ <!-- 
+// HTML events are "things" that happen to HTML elements.
+// When JavaScript is used in HTML pages, JavaScript can "react" on these events.
+
+
+// 👨‍🏫 HTML Events
+// An HTML event can be something the browser does, or something a user does.
+
+// Here are some examples of HTML events:
+
+// An HTML web page has finished loading
+// An HTML input field was changed
+// An HTML button was clicked
+// Often, when events happen, you may want to do something.
+
+// JavaScript lets you execute code when events are detected.
+
+// HTML allows event handler attributes, with JavaScript code, 
+// to be added to HTML elements.
+
+
+
+// section 1️⃣ 4 ways of writing Events in JavaScript
+
+// 1: using inline events alert();
+// 2: By Calling a funcion (We already seen and most common way of writing) 
+// 3: using Inline events (HTML onclick="" property and element.onclick)
+// 4: using Event Listeners (addEventListener and IE's attachEvent)
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+<style>
+body {
+font-family:'Inconsolata', sans-serif;
+background: #2a364f;
+}
+h1{
+text-align: center;
+color: rgba(255,255,255,0.8)
+} 
+.credit{
+text-align: center;
+color: rgba(255 255 255 04);
+}
+.content{
+padding-top: 45px;
+padding-bottom: 20px;
+}
+.button_container {
+width: 176px;
+margin: 0 auto;
+margin-top: 30px;
+padding-top: 40px;
+}
+.button_su{
+overflow: hidden;
+position: relative;
+display: inline-block;
+border-radius: 3px;
+margin-bottom: 30px;
+box-shadow: 0px 10px 8px -8px rgba(0, 0, 0, 0.6);
+}
+.su_button_circle{
+background-color: red;
+border-radius: 1000px;
+position: absolute;
+left:0;
+top:0;
+width: 0px;
+height: 0px;
+margin-left: 0px;
+margin-top: 0px;
+pointer-events: none;
+/*animation-timing-function: ease-in-out; */
+}
+.button_su_inner{
+display: inline-block;
+background: #F8B627;
+color: #F4F4F4;
+font-size: 16px;
+font-weight: normal;
+width: 132px;
+text-align: center;
+border-radius: 3px;
+transition: 400ms;
+text-decoration: none;
+padding: 22px;
+z-index: 100000;
+}
+.button_text_container 
+{
+     position:relative; 
+    z-index: 10000;
+ }
+
+
+
+.explode circle{
+    animation: explode 0.5s forwards;
+}
+
+.desplode-circle{
+animation: desplode 0.5s forwards;
+}
+
+</style>
+
+</head>
+<body>
+<div class="content">
+<h1>Different Events Types In JavaScript </h1> 
+<div class="button_container">
+<div class="button_su">
+<span class="su_button_circle"> </span>
+
+<a href="#" class="button_su_inner" onclick="alert('I am awesome, But No one likes me')">
+
+   <span class="button_text_container">    
+simple Inline alert()
+    </span>
+    </a>
+    </div>
+
+    <div class="button_su">
+    <span class="su_button_circle">
+    </span>
+    <a href="#" class="button_su_inner" onclick="callingFunction()"> 
+        <span class="button_text_container">
+            By calling a Function 
+        </span>
+        </a>
+        </div>
+  
+  <div class="button_su">
+  <span class="su_button_circle">
+  </span>
+  <a href="#" class="button_su_inner">
+       <span class="button_text_container" id="thirdway">
+           Inline event
+  </span>
+  </a>
+  </div>
+  <div class="button_su">
+    <span class="su_button_circle">
+    </span>
+    <a href="#" class="button_su_inner" id="fourthway"> 
+        <span class="button_text_container">
+           Event Listener
+        </span>
+        </a>
+        </div>
+  </div>
+  <script>
+            /*Section 1*/
+            //2nd way of writing function
+            const callingFunction=()=>{
+                alert("Most common way of writing functions")
+            }
+
+            //👉👉 onClick vs addEventListener
+            
+            //3rd way :Get element using ID fir onclick event apply kardo.We have used anonymous function
+
+            //👉Overriding Nature ,When we use same Reference Method to trigger Event
+            //Case 1:Same reference will get override,Hence console me output aiga but alert is not going to work as it has been overridden
+            document.getElementById('thirdway').onclick=function(){ alert("Most common way of writing functions,again")}
+            document.getElementById('thirdway').onclick=function(){ console.log("Most common way of writing functions,again")}
+
+            //Case 2:Here alert will get override by console.log
+            document.getElementById('thirdway').onclick=function(){ console.log("Most common way of writing functions,again")}
+            document.getElementById('thirdway').onclick=function(){ alert("Most common way of writing functions,again")}
+
+
+
+     
+            //4th way:Using a Function addEventListener(within this we have used a callBack function(when a function is argument of another function then its a callback function))
+            //Syntax:document.addEventListener(event, function, useCapture)
+            //👉Required. A String that specifies the name of the event.Note: Do not use the "on" prefix. For example, use "click" instead of "onclick".
+
+            //👉Non-Overriding Nature of addEventListener with same refrence.Here no overriding occurs even when reference is same.So Alert function and console.log() both will run 
+
+            //case 1
+            document.querySelector('#fourthway').addEventListener('mouseover',()=>{ alert("I Love this way of writing")})
+            document.querySelector('#fourthway').addEventListener('mouseover',()=>{ cnsole.log("I Love this way of writing")})
+
+            //case 2
+            //document.querySelector('#fourthway').addEventListener('mouseover',()=>{ cnsole.log("I Love this way of writing")})
+            //document.querySelector('#fourthway').addEventListener('mouseover',()=>{ alert("I Love this way of writing")})
+
+
+
+
+
+  </script>
+  </body>
+  </html>

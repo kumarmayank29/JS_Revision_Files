@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>setTimeInterval Event</title>
+</head>
+<body>
+    <div class="main-div">
+        <div>
+            <p>Can you stop when I reach at 5?</p>
+            <br>
+            <button id="btn">Start the Count Down</button>
+            <button id="btn1">Stop the Count Down</button>
+        </div>
+    </div>
+    <script>
+        let timeref;
+        let num=0;
+        document.querySelector("#btn").addEventListener('click',()=>{ 
+        document.querySelector('p').innerHTML="Loading...🐓"
+        timeref=setInterval(()=>{
+            document.querySelector('p').innerHTML=`${num}`;
+            num++;
+        },1000)}) 
+
+        document.querySelector("#btn1").addEventListener('click',()=>{
+            clearInterval(timeref);
+        })
+
+
+
+    </script>
+    
+</body>
+</html>

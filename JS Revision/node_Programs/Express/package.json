@@ -1,0 +1,11 @@
+{
+  "name": "mks",
+  "version": "1.0.0",
+  "description": "This is Package we created while studying and exploring node and express",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Mayank Kumar",
+  "license": "ISC"
+}

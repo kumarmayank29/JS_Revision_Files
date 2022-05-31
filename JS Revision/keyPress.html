@@ -1,0 +1,40 @@
+<!-- 
+// section ️4️⃣ KeyboardEvent  in JavaScript
+// Events that occur when user presses a key on the keyboard, 
+// belongs to the KeyboardEvent Object.
+// https://www.w3schools.com/jsref/obj_keyboardevent.asp 
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KeyBoard Events</title>
+</head>
+<body>
+    <h1>Keyboard  Events in JS </h1>
+    <div class="main-div">
+        <div>
+        <p>A function is triggered when the user is pressing a key in the input field</p>
+        <br>
+        <input type="text" class="effect-1" onkeypress="keyPress()" onkeydown="keyDown()" onkeyup="keyUp()">
+        <br/>
+        <p id="keys"></p>
+    </div>
+    </div>
+    <script>
+        // const keyPress=()=>{
+        //     document.getElementById('keys').innerHTML=`you press ${event.key} and it's code is ${event.code}`
+        // }
+
+        const keyDown=()=>{
+            document.getElementById('keys').innerHTML=`key is down`
+        }
+
+        const keyUp=()=>{
+            document.getElementById('keys').innerHTML=`key is up`
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Temperature Calculator</title>
+</head>
+<body>
+    <!-- When we use onsubmit event ,then by using this event data submitted can be used.When we submit,
+    by clicking on submit button calculateTemp() function is Triggered.Also note
+    return false is used to avoid auto submission of form -->
+
+    <form id="tempCalc" onsubmit="calculateTemp(); return false">
+        <label for="temp" style="color: chocolate; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">Please Enter The Temperature That You Would Like to Convert</label>
+        <input type="number" name="temp" id="temp">
+
+        <select name="temp_diff" id="temp_diff">
+            <option val="Celcius">°Celcius</option>
+            <option val="Fahrenheit">°Fahrenheit</option>
+            <option val="Kelvin">Kelvin</option>
+        </select>
+        <br/>
+        
+        <input type="submit" name="temp">
+        <br/>
+        <span id="resultContainer"></span>
+   </form>
+
+    <script src="script.js"></script>
+    
+</body>
+</html>

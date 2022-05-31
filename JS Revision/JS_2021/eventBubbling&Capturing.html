@@ -1,0 +1,105 @@
+<!-- 
+1️⃣: Event Propagation (Event Bubbling and Event Capturing)
+Event Propagation mode determines in which order 
+elements will receive the events
+
+/*
+Cycle of Event Propagation
+  Window   |
+  Document | 
+  <html>   |
+  <body>   |
+  <div>    |
+  <button> |☝Bubble Phase(bottom to top) otherwise 👇 Capture Phase(top to bottom)
+  Target Phase(Jo element actually me event fire karta hai)
+
+*/
+
+/* When an event occurs in an element inside another element
+,and both elements have registered a handle for that event.at 
+this time the event propagation mode determines in which order
+the elements receive the event.There are two modes of event 
+propagation event bubbling and capturing
+
+1.Capture Phase:        Going from window to event target phase
+2.The Target Phase:     It is the target Phase
+3.The Bubble Phase:     From event target parent back to window
+
+What is event bubbling?
+In Event bubbling,the event is first captured anmd handled by the
+innermost element and then propagated to other elements
+
+What is Event Capturing
+In Event capturing first event is captured by outermost element
+and propagated to inner elements.Capturing is also called "trickling
+which helps remember the propagation order 
+
+
+event.stopPropagation();
+This function is used to stop event propagation
+
+By default Bubbling(inner to outer event handling) is enabled but if we wish to enable 
+Evenet capturing then we need to use third argument of addEventListener as true
+ in both childId and parent element
+
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Bubbling and Capturing</title>
+    <style>
+        .parentDiv{
+            height:200px;
+            width:300px;
+            border: 2px solid black;
+            background-color: #b82da5;
+            border:10 px solid #10ac84;
+
+            box-shadow: 0 10px 13px -10px rgba(0,0,0,0.4);
+        }
+        .childDiv{
+            height:100px;
+            width:150px;
+            border: 2px solid black;
+            background-color: #1dd1a1;
+            border:10 px solid #10ac84;
+            box-shadow: 0 10px 13px -10px rgba(0,0,0,0.4);
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+    <h1>Event Bubbling and Capturinf</h1>
+    <div class="parentDiv" id="parentId">
+        <div class="childDiv" id="childId"></div>
+    </div>
+
+    <script>
+          const parentId=document.getElementById('parentId')
+        const childId=document.getElementById('childId')
+
+        const parentCall=()=>{
+            alert('parent div call')
+            //console.log('parent div call')
+        }
+        const childCall=()=>{
+            alert('Child div call')
+            //console.log('Child div call')
+            //event.stopPropagation();  
+            //This function is used to stop event propagation
+        }
+        // parentId.addEventListener('click',parentCall,true);
+        // childId.addEventListener('click',childCall,true);
+
+        parentId.addEventListener('click',parentCall);
+        childId.addEventListener('click',childCall);
+
+    </script>
+
+
+</body>
+</html>
